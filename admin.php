@@ -5,7 +5,7 @@ add_action('admin_menu', 'apfc_create_menu');
 function apfc_create_menu() {
 
     //create new top-level menu
-    add_menu_page('Auto Post FB Comment Settings', 'Auto Post FB Comment', 'administrator', __FILE__, 'apfc_settings_page', plugins_url('/images/icon.png', __FILE__));
+    add_menu_page('Auto Post FB Comment Settings', 'Auto Post FB Comment', 'administrator', __FILE__, 'apfc_settings_page', plugins_url('/images/icon-16x16.png', __FILE__));
 
     //call register settings function
     add_action('admin_init', 'register_mysettings');
