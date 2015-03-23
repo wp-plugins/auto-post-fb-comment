@@ -30,6 +30,9 @@ if (!class_exists("Auto_Post_FB_Comment")) {
         private $approved;
         private $debug;
         private $prefix;
+        private $width;
+        private $numposts;
+        private $colorscheme;
 
         public function __construct() {
             add_action("wp_ajax_auto_post_fb_comment", array(&$this, "auto_post_fb_comment"));
@@ -37,8 +40,11 @@ if (!class_exists("Auto_Post_FB_Comment")) {
             add_filter('comments_array', array(&$this, "filter_comment"));
             $this->prefix = "apfc";
             $this->app_id = get_option($this->prefix . "_app_id");
-            $this->approved = get_option($this->prefix . "_approved") ? 1 : get_option($this->prefix . "_approved");
-            $this->debug = get_option($this->prefix . "_debug") ? 0 : get_option($this->prefix . "_debug");
+            $this->approved = get_option($this->prefix . "_approved", 1);
+            $this->debug = get_option($this->prefix . "_debug", 0);
+            $this->width = get_option($this->prefix . "_width", 550);
+            $this->numposts = get_option($this->prefix . "_numposts", 5);
+            $this->colorscheme = get_option($this->prefix . "_colorscheme", "light");
         }
 
         public function auto_post_fb_comment() {
@@ -87,7 +93,6 @@ if (!class_exists("Auto_Post_FB_Comment")) {
                 'comment_author_url' => $comment_author_url,
                 'comment_author_IP' => sanitize_text_field($_SERVER['REMOTE_ADDR']),
                 'comment_date' => $time,
-                //'comment_date_gmt' => $time,
                 'comment_content' => $comment_content,
                 'comment_karma' => '',
                 'comment_approved' => $this->approved,
@@ -178,8 +183,9 @@ if (!class_exists("Auto_Post_FB_Comment")) {
             echo '<div
                         class="fb-comments"
                         data-href="' . get_permalink($post->ID) . '"
-                        data-numposts="5"
-                        data-colorscheme="light">
+                        data-width="' . $this->width . '"
+                        data-numposts="' . $this->numposts . '"
+                        data-colorscheme="' . $this->colorscheme . '">
                     </div>';
         }
 

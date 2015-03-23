@@ -5,7 +5,7 @@ Donate link: http://autopostfbcomment.com
 Tags: comments, facebook, facebook comments, seo, facebook seo, post, plugin, page, google, facebook open graph, open graph, seo facebook comments, facebook plugin, wordpress facebook plugins
 Requires at least: 2.9
 Tested up to: 4.1.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 
 This plugin will insert a Facebook Comment into your Wordpress Database when user comments on your post / page.
@@ -45,27 +45,37 @@ to your Wordpress while the users visit your blog posts pages :)
 
 1. How it looks on the Theme to the user (Facebook Comment Form)
 2. How it looks on the Theme to the user (Wordpress Comment Form)
-3. Plugin Admin Configuration View
+2. Comments in admin view
+4. Plugin Admin Configuration View
 
 == Installation ==
 
 
 1. Upload `auto-post-fb-comment` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Configure the Options of the plugin (App ID, Default comment status, Turn on debug?)
+3. Configure the Options of the plugin (App ID, Default comment status, Turn on debug,...)
 4. Enjoy :D
 
 == Frequently Asked Questions ==
 
-= No questions at this moment =
+= Are the comments stored as regular WP comments or stored in a different way? =
 
-No answers at this moment
+Comments are stored in regular WP comments, in table wp_comments
+
+= What if the visitor does not want to post a comment as Facebook comment? =
+
+At current version, there's no way to let visitor posts comment in Facebook form but not posts comment to WP. But if yes, this option is global. It means that all comments are posted in Facebook are not posted to WP.
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
 
-* No upgrades so far
+* Add options for Facebook comment form (width, numposts, color scheme)
+* Change screenshots, banner, icon
+
+= 1.0.0 =
+
+* Init version
 
 == Upgrade Notice ==
 
